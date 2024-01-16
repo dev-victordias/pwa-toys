@@ -1,0 +1,53 @@
+[
+    {
+        "categoria": "Action Figures",
+        "brinquedos": [
+            {
+                "nome": "Thundercat",
+                "imagem": "imgs/toy_101.jpg",
+                "whatsapp": "27999999999",
+                "valor": "R$ 100,00"
+            },
+            {
+                "nome": "Mummy",
+                "imagem": "imgs/toy_102.jpg",
+                "whatsapp": "27999999999",
+                "valor": "R$ 30,00"
+            }
+        ]
+    },
+    {
+        "categoria": "Vehicles",
+        "brinquedos": [
+            {
+                "nome": "Batmobile",
+                "imagem": "imgs/toy_201.jpg",
+                "whatsapp": "27999999999",
+                "valor": "R$ 100,00"
+            },
+            {
+                "nome": "Bumblebee",
+                "imagem": "imgs/toy_202.jpg",
+                "whatsapp": "27999999999",
+                "valor": "R$ 50,00"
+            }
+        ]
+    },
+    {
+        "categoria": "Collections",
+        "brinquedos": [
+            {
+                "nome": "Bad Girls Set",
+                "imagem": "imgs/toy_301.jpg",
+                "whatsapp": "27999999999",
+                "valor": "R$ 150,00"
+            },
+            {
+                "nome": "Star Wars",
+                "imagem": "imgs/toy_302.jpg",
+                "whatsapp": "27999999999",
+                "valor": "R$ 500,00"
+            }
+        ]
+    }
+]
