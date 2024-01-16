@@ -42,7 +42,8 @@ ajax.onreadystatechange = function(){
                     html_content += '</div>'
                 }
             }
-           content.innerHTML = html_content;
+            dinamic_cache(data_json);
+            content.innerHTML = html_content;
        }
     }
 
@@ -62,4 +63,65 @@ var card_brinquedo = function(nome, imagem, valor, whatsapp) {
                     '</div>'+
                 '</div>'+
             '</div>';
+}
+
+//Construir cache dinâmico
+var dinamic_cache = function(data_json) {
+    if('caches' in window){
+
+        console.log("Deleting preview dinamic cache");
+        caches.delete("brinquedo-app-dinamico").then(function(){
+            if(data_json.length > 0) {
+                var files = ['dados.json'];
+                for (let i = 0; i < data_json.length; i++){
+                    for (let j = 0; j < data_json[i].brinquedos.length; j++){
+                        if(files.indexOf(data_json[i].brinquedos[j].imagem) == -1) {
+                            files.push(data_json[i].brinquedos[j].imagem);
+                        }
+                    }
+                }
+            }
+
+            caches.open("brinquedo-app-dinamico").then(function (cache)  {
+
+                cache.addAll(files).then(function (){
+
+                    console.log("Novo cache dinâmico adicionado");
+                    
+
+
+                });
+
+            });
+
+        });
+
+    }
+}
+
+//Botão de Instalação
+let installDispatch = null;
+const btnInstall = document.getElementById("btnInstall");
+
+let inicializarInstalacao = function(){
+
+    btnInstall.removeAttribute("hidden");
+    btnInstall.addEventListener('click', function(){
+        installDispatch.prompt();
+        installDispatch.userChoice.then((choice) => {
+
+            if(choice.outcome === 'accepted') {
+                console.log("Usuário realizou a instalação");
+            } else {
+                console.log("Usuário não realizou a instalação");
+            }
+
+        })
+    })
+
+}
+window.addEventListener('beforeinstallprompt', gravarDisparo);
+
+function gravarDisparo(evt) {
+    installDispatch = evt;
 }

@@ -26,32 +26,22 @@
       <img src="imgs/logo.png" class="logo" />
     </header>
 
+    <section class="container" style="margin-top: 80px;">
+        <div class="row">
+            <div class="col-12">
+                <div class="alert alert-warning" role="alert">
+                    <img src="imgs/offline.png" alt="offline icon" width="30">
+                    Você está acessando esse app offline. Veja os últimos itens visitados!
+                </div>
+            </div>
+        </div>
+    </section>
+
     <main class="container" id="content">
     </main>
 
-    <footer class="container-fluid fixed-bottom">
-      <div class="d-grid gap-2">
-        <button type="button" class="btn btn-warning" id="btnInstall" hidden>Instalar</button>
-      </div>
-    </footer>
-
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/app.js"></script>
-
-    <script>
-      let serviceWorkerRegistration = null;
-      if('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-        
-          navigator.serviceWorker.register('service-worker.js').then((reg) => {
-            console.log("Service Worker successful registered!")
-            serviceWorkerRegistration = reg;
-
-          });
-          inicializarInstalacao();
-        });
-      }
-    </script>
 
   </body>
 </html>
